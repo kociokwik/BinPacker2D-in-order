@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{50F096F1-14C4-41A8-B3F5-91B6A605F364}</ProjectGuid>
+    <ProjectGuid>{389C396A-5631-418A-BB77-1B20B002B530}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>BinPackerGUI</RootNamespace>
     <AssemblyName>BinPackerGUI</AssemblyName>
@@ -54,6 +54,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,6 +78,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BinPacker2D\BinPacker2D.csproj">
+      <Project>{c9e7a91c-0f75-416f-9c3d-e0a3d8a4a570}</Project>
+      <Name>BinPacker2D</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
