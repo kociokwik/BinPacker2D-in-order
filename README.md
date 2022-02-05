@@ -17,8 +17,10 @@ Logic of inserting elements into rows:
 
 - Each time we create a rotated copy of an element we also create new Variant.
 
-2. We do the same for the next element - if it's height is smaller than previous element, then we create a SPLIT of this row => one row has height of the currently inserted element and we have second row on top of it for later use.
+2. We do the same for the next element.
 ![3](https://user-images.githubusercontent.com/78303091/152651150-52fd831d-fa0e-42cf-b4fd-29bceb61b140.jpg)
+
+-  If it's height is smaller than previous element, then we create a SPLIT of this row => one row has height of the currently inserted element and we have second row on top of it for later use.
 ![4](https://user-images.githubusercontent.com/78303091/152651151-09cb700e-5b06-4709-8d98-dfe9d517c208.jpg)
 
 3. We insert elements along MAIN ROW Y coordinate (while also creating Variants with rotated element and SPLITS to use later) until we run out of elements, or next element can't fit in this row.
