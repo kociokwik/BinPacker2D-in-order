@@ -1,14 +1,15 @@
 # BinPacker2D-in-order
 
-REMARKS:
+## REMARKS:
 - SAME ELEMENTS HAVE TO BE NEXT TO EACH OTHER - it's necessary to speed up packing of created products after cutting them.
 - Algorithm is done, when there is no more space in the table, or we inserted all of the elements in all possible variants. Unused elements will come back for the next run, on the new page
 - Some of the properties are used outside of this scope
+- Along the way we store rows (RowVariant) of elements in a VariantGroup. This way we can compare all of the outcomes when they are completed - comparing just a single row is much more memory efficient, but in real-life usage often leads to situation where we end up with 2 rows instead of one.
 
 
 
 
-Logic of inserting elements into rows:
+## Logic of inserting elements into rows:
 1. Insert first element into starting position, if it can also fit oriented horizontally create second RowVariant with rotated copy of the element.
 ![1](https://user-images.githubusercontent.com/78303091/152651148-5335fec5-8c19-4864-b78b-3ab69da3d841.jpg)
 
