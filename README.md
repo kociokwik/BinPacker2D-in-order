@@ -5,6 +5,9 @@ REMARKS:
 - Algorithm is done, when there is no more space in the table, or we inserted all of the elements in all possible variants. Unused elements will come back for the next run, on the new page
 - Some of the properties are used outside of this scope
 
+
+
+
 Logic of inserting elements into rows:
 1. Insert first element into starting position, if it can also fit oriented horizontally create second RowVariant with rotated copy of the element.
   - Now we have a MAIN ROW for the RowVariant - it has a height of the first element and width of the Table.
