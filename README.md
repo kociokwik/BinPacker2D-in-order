@@ -23,14 +23,14 @@ Logic of inserting elements into rows:
 -  If it's height is smaller than previous element, then we create a SPLIT of this row => one row has height of the currently inserted element and we have second row on top of it for later use.
 ![4](https://user-images.githubusercontent.com/78303091/152651151-09cb700e-5b06-4709-8d98-dfe9d517c208.jpg)
 
-3. We insert elements along MAIN ROW Y coordinate (while also creating Variants with rotated element and SPLITS to use later) until we run out of elements, or next element can't fit in this row.
+3. We insert elements along MAIN ROW Y coordinate (while also saving row SPLITS for later use + creating copied Variants with rotated element) until we run out of elements, or next element can't fit in this row.
 ![5](https://user-images.githubusercontent.com/78303091/152651144-c91348f9-953d-48c3-8cc5-00c1e7a00169.jpg)
 
-4. When the MAIN ROW is done (no more free space in it's Y axis) and there are still unpacked elements, we go back to previous empty SPLIT where next element can fit and treat it as our new ROW.
+4. When the MAIN ROW is done (no more free space in it's Y axis) and there are still unpacked elements, we go back to previous empty SPLIT row where next element can fit and treat it as our new ROW.
 ![6](https://user-images.githubusercontent.com/78303091/152651146-df506e99-fb62-49d6-a9e9-4a0b0e0b06d8.jpg)
 
 5. When finally there is no more free space in the MAIN ROW (we checked all the inside rows/splits), we create a new MAIN ROW on top of the first one. Repeat from step 1.
-6. When we don't have free elements or free space in the whole TABLE we can compare all of the outcomes (VariantGroups). Each of them holds it's own RowVariants and packed elements.
+6. When we don't have free elements or free space in the whole TABLE we can compare all of the outcomes (VariantGroups). Each of them holds it's own rows (RowVariant) and packed elements.
 7. Select VairantGroup with most packed elements. If 2 VariantsGroups have same number of elements, the we select one with lower Y coordinate (less space used).
 
 
