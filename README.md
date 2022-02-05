@@ -1,4 +1,5 @@
 # BinPacker2D-in-order
+This library is used for packing elements on the 2D plane for laser cutter. Size of the working area is 520x400 (width x height) and can be adjusted, along with margins for each side and spacing between elements. Algorithm is optimizing material usage along Y axis, so elements are packed from left to right.
 
 ## REMARKS:
 - SAME ELEMENTS HAVE TO BE NEXT TO EACH OTHER - it's necessary to speed up packing of created products after cutting them.
@@ -24,10 +25,10 @@
 -  If it's height is smaller than previous element, then we create a SPLIT of this row => one row has height of the currently inserted element and we have second row on top of it for later use.
 ![4](https://user-images.githubusercontent.com/78303091/152651151-09cb700e-5b06-4709-8d98-dfe9d517c208.jpg)
 
-3. We insert elements along MAIN ROW Y coordinate (while also saving row SPLITS for later use + creating copied Variants with rotated element) until we run out of elements, or next element can't fit in this row.
+3. We insert elements along MAIN ROW X coordinate (while also saving row SPLITS for later use + creating copied Variants with rotated element) until we run out of elements, or next element can't fit in this row.
 ![5](https://user-images.githubusercontent.com/78303091/152651144-c91348f9-953d-48c3-8cc5-00c1e7a00169.jpg)
 
-4. When the MAIN ROW is done (no more free space in it's Y axis) and there are still unpacked elements, we go back to previous empty SPLIT row where next element can fit and treat it as our new ROW.
+4. When the MAIN ROW is done (no more free space in it's X axis) and there are still unpacked elements, we go back to previous empty SPLIT row where next element can fit and treat it as our new ROW.
 ![6](https://user-images.githubusercontent.com/78303091/152651146-df506e99-fb62-49d6-a9e9-4a0b0e0b06d8.jpg)
 
 5. When finally there is no more free space in the MAIN ROW (we checked all the inside rows/splits), we create a new MAIN ROW on top of the first one. Repeat from step 1.
