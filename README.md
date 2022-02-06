@@ -13,7 +13,7 @@ This isn't a full bin packing algorithm, because elements have to be placed in o
 
 
 ## Logic of inserting elements into rows:
-- Before packing, orient all the elements, so that height is larger than width and then sort elements by width descending.
+- Before packing, orient all the elements, so that height is larger than width and sort elements by width descending.
 
 1. Insert first element into starting position, if it can also fit oriented horizontally create second ***RowVariant*** with rotated copy of the element.
 ![1](https://user-images.githubusercontent.com/78303091/152651148-5335fec5-8c19-4864-b78b-3ab69da3d841.jpg)
@@ -35,8 +35,8 @@ This isn't a full bin packing algorithm, because elements have to be placed in o
 4. When the ***main row*** is done (no more free space in it's X axis) and there are still unpacked elements, we go back to previous empty ***split row*** where next element can fit and treat it as our new ***row***.
 ![6](https://user-images.githubusercontent.com/78303091/152651146-df506e99-fb62-49d6-a9e9-4a0b0e0b06d8.jpg)
 
-5. When finally there is no more free space in the ***main row*** (we checked all the inside rows/splits), we create a new **main row*** on top of the first one. Repeat from step 1.
-6. When we don't have free elements or free space in the whole TABLE, we can compare all of the outcomes (***VariantGroups***). Each of them holds it's own rows (***RowVariant***) and packed elements.
+5. When finally there is no more free space in the ***main row*** (we checked all the inside rows/splits), we create a new ***main row*** on top of the first one. Repeat from step 1.
+6. When we don't have free elements or free space in the whole Table, we can compare all of the outcomes (***VariantGroups***). Each of them holds it's own rows (***RowVariant***) and packed elements.
 7. Select ***VariantGroup*** with most packed elements. If 2 VariantsGroups have same number of packed elements, the we select one with lower Y coordinate (less space used).
 
 
