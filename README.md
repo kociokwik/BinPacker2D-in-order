@@ -4,10 +4,10 @@ This library is used for packing elements on the 2D plane for laser cutting. Siz
 This isn't a full bin packing algorithm, because elements have to be placed in order - this is a crucial requirement for the production enviroment. It impacts material usage (leaving empty spots), but allows to sort final products much faster which would be otherwise randomly placed over one or many generated pages making it hard/nearly impossible to do without mistakes (elements are cut in foil, they are impossible to distinguish just by looking at them and in a single run we generate pages for about 40 distinct shapes - multiply that by 2 or more pieces of each shape and you get an idea why it's so important to pack them in order).
 
 ## REMARKS:
-- SAME ELEMENTS HAVE TO BE NEXT TO EACH OTHER - it's necessary to speed up packing of created products after cutting them.
+- **SAME ELEMENTS HAVE TO BE NEXT TO EACH OTHER** - it's necessary to speed up packing of created products after cutting them.
 - Algorithm is done, when there is no more free space in the table, or we inserted all of the elements in all possible variants. Unused elements will come back for the next run, on the new page
 - Some of the properties are used outside of this scope
-- Along the way we store rows (RowVariant) of elements in a VariantGroup. This way we can compare all of the outcomes when they are completed - comparing just a single row is much more memory efficient, but in real-life usage often leads to situation where we end up with 2 rows instead of one.
+- Along the way we store rows (***RowVariant***) of elements in a ***VariantGroup***. This way we can compare all of the outcomes when they are completed - comparing just a single row is much more memory efficient, but in real-life usage often leads to situation where we end up with 2 rows instead of one.
 
 
 
