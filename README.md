@@ -1,5 +1,7 @@
 # BinPacker2D-in-order
-This library is used for packing elements on the 2D plane for laser cutter. Size of the working area is 520x400 (width x height) and can be adjusted, along with margins for each side and spacing between elements. Algorithm is optimizing material usage along Y axis, so elements are packed from left to right.
+This library is used for packing elements on the 2D plane for laser cutting. Size of the working area is 520x400 (width x height) and can be adjusted, along with margins for each side and spacing between elements. Algorithm is optimizing material usage along Y axis, so elements are packed from left to right. 
+
+This isn't a full bin packing algorithm, because elements have to be placed in order - this is a crucial requirement for the production enviroment. It impacts material usage (leaving empty spots), but allows to sort final products much faster which would be otherwise randomly placed over one or many generated pages making it hard/nearly impossible to do without mistakes (elements are cut in foil, they are impossible to distinguish just by looking at them and in a single run we generate pages for about 40 distinct shapes - multiply that by 2 or more pieces of each shape and you get an idea why it's so important to pack them in order) 
 
 ## REMARKS:
 - SAME ELEMENTS HAVE TO BE NEXT TO EACH OTHER - it's necessary to speed up packing of created products after cutting them.
@@ -11,6 +13,8 @@ This library is used for packing elements on the 2D plane for laser cutter. Size
 
 
 ## Logic of inserting elements into rows:
+- Before packing orient all the elements, so that height is larger than width and then sort by width descending.
+
 1. Insert first element into starting position, if it can also fit oriented horizontally create second RowVariant with rotated copy of the element.
 ![1](https://user-images.githubusercontent.com/78303091/152651148-5335fec5-8c19-4864-b78b-3ab69da3d841.jpg)
 
